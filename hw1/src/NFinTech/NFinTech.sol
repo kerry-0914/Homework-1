@@ -124,10 +124,9 @@ contract NFinTech is IERC721 {
     function approve(address to, uint256 tokenId) external {
         // TODO: please add your implementaiton here
         address owner = _owner[tokenId];
-        require(
-            msg.sender == owner || _operatorApproval[owner][msg.sender],
-            "not owner nor approved for all"
-        );
+        if (!(msg.sender == owner || _operatorApproval[owner][msg.sender]))
+            revert ZeroAddress();
+
         _approve(owner, to, tokenId);
     }
 
