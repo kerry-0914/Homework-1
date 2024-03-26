@@ -116,6 +116,10 @@ contract NFinTech is IERC721 {
         // TODO: please add your implementaiton here
         return _operatorApproval[owner][operator];
     }
+    function _approve(address owner, address to, uint tokenId) private {
+        _tokenApproval[tokenId] = to;
+        emit Approval(owner, to, tokenId);
+    }
 
     function approve(address to, uint256 tokenId) external {
         // TODO: please add your implementaiton here
@@ -124,8 +128,7 @@ contract NFinTech is IERC721 {
             msg.sender == owner || _operatorApproval[owner][msg.sender],
             "not owner nor approved for all"
         );
-        _tokenApproval[tokenId] = to;
-        emit Approval(owner, to, tokenId);
+        _approve(owner, to, tokenId);
     }
 
     function getApproved(

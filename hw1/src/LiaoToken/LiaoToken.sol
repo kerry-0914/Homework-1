@@ -83,16 +83,12 @@ contract LiaoToken is IERC20 {
         uint256 value
     ) external returns (bool) {
         // TODO: please add your implementaiton here
-        uint256 max_amount = allowance(from, msg.sender);
-        if (max_amount >= value) {
-            _allowance[from][msg.sender] -= value;
-            _balances[from] -= value;
-            _balances[to] += value;
-            emit Transfer(from, to, value);
-            return true;
-        } else {
-            return false;
-        }
+
+        _allowance[from][msg.sender] -= value;
+        _balances[from] -= value;
+        _balances[to] += value;
+        emit Transfer(from, to, value);
+        return true;
     }
 
     function approve(address spender, uint256 amount) external returns (bool) {

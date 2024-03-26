@@ -38,7 +38,7 @@ contract StudentV3 {
     function register() external view returns (uint256) {
         // TODO: please add your implementaiton here
         uint256 gasremain = gasleft();
-        if (gasremain > 8500) {
+        if (gasremain > 9500) {
             return 1000;
         } else {
             return 123;
