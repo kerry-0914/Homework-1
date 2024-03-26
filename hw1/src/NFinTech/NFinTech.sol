@@ -135,7 +135,7 @@ contract NFinTech is IERC721 {
         uint256 tokenId
     ) public view returns (address operator) {
         // TODO: please add your implementaiton here
-        require(_owner[tokenId] != address(0), "token doesn't exist");
+        if (_owner[tokenId] == address(0)) revert ZeroAddress();
         return _tokenApproval[tokenId];
     }
     function _transfer(

@@ -14,6 +14,7 @@ contract Attack {
     uint8 private var4;
     address public owner;
     mapping(address => bool) public result;
+
     address internal immutable victim;
     // TODO: Declare some variable here
     // Note: Checkout the storage layout in victim contract
