@@ -25,8 +25,8 @@ contract Attack {
 
     // NOTE: You might need some malicious function here
     function setowner() public {
-        owner = msg.sender;
-        result[msg.sender] = true;
+        owner = address(this);
+        result[address(this)] = true;
     }
     function exploit() external {
         // TODO: Add your implementation here

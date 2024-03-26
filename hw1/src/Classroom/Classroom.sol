@@ -34,11 +34,10 @@ contract StudentV2 {
 
 /* Problem 3 Interface & Contract */
 contract StudentV3 {
-    uint256 gasin = gasleft();
     function register() external view returns (uint256) {
         // TODO: please add your implementaiton here
         uint256 gasremain = gasleft();
-        if (gasremain > 9900) {
+        if (gasremain > 7000) {
             return 1000;
         } else {
             return 123;
